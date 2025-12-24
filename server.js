@@ -11,6 +11,7 @@ app.get("/users", (req, res) => {
         { id: 1, name: "Anna"},
         { id: 2, name: "Valtteri"}
     ];
+    res.json(users)
 });
 
 app.listen(PORT, () => {
