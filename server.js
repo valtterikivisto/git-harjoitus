@@ -1,6 +1,7 @@
+require("dotenv").config()
 const express = require("express");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Logger middleware
 app.use((req, res, next) => {
@@ -9,7 +10,10 @@ app.use((req, res, next) => {
 })
 
 app.get("/", (req, res) => {
-    res.json({message: "Tervetuloa git-harjoitukseen!"});
+    res.json({
+        message: "Tervetuloa git-harjoitukseen!",
+        port: PORT
+    });
 });
 
 app.get("/users", (req, res) => {
@@ -21,5 +25,6 @@ app.get("/users", (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Serveri käynnissä portissa ${PORT}`)
+    console.log(`Serveri käynnissä portissa ${PORT}`);
+    console.log(`SECRET KEY asetettu: ${process.env.SECRET_KEY ? 'Kyllä' : 'Ei'}`)
 });
