@@ -6,6 +6,13 @@ app.get("/", (req, res) => {
     res.json({message: "Tervetuloa git-harjoitukseen!"});
 });
 
+app.get("/users", (req, res) => {
+    const users = [
+        { id: 1, name: "Anna"},
+        { id: 2, name: "Valtteri"}
+    ];
+});
+
 app.listen(PORT, () => {
     console.log(`Serveri käynnissä portissa ${PORT}`)
 });
